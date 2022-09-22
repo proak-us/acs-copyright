@@ -1,0 +1,23 @@
+---
+export interface Props {
+	positionX: number;
+	positionY: number;
+}
+
+const { positionX, positionY } = Astro.props;
+
+---
+
+<div class="nft-container-position">
+    <slot />
+</div>
+
+<style define:vars={{ top: `${positionY}px`, left: `${positionX}px` }}>
+    .nft-container-position {
+        position: absolute;
+        top: var(--top);
+        left: var(--left);
+        
+        user-select:none;
+    }
+</style>

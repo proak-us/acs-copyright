@@ -1,0 +1,41 @@
+---
+export interface Props {
+    width: string;
+    height: string;
+}
+
+const { width, height } = Astro.props;
+
+---
+
+<div class="nft-faces" id="nft-faces" draggable>
+    <slot />
+</div>
+
+<script>
+    import { TicketSdk } from "../package/ticket-sdk";
+
+    const nftFaces = document.getElementById('nft-faces')! as HTMLDivElement;
+
+    const ticketSdk = new TicketSdk('nft-faces');
+
+    nftFaces.addEventListener('wheel', ticketSdk.zoomController());
+    nftFaces.addEventListener('wheel', ticketSdk.rotateController());
+    nftFaces.addEventListener('dragstart', ticketSdk.translateController(-1));
+    nftFaces.addEventListener('drag', ticketSdk.translateController());
+
+</script>
+
+<style define:vars={{ width, height }}>
+    .nft-faces {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: var(--width);
+        height: var(--height);
+        transform: scale(1) translate(20px, 90px) rotateY(0deg);
+        position: relative;
+        transform-style: preserve-3d;
+        pointer-events: all;
+    }
+</style>

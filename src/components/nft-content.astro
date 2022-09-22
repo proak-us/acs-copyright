@@ -1,0 +1,19 @@
+---
+export interface Props {}
+
+const { } = Astro.props;
+
+---
+
+<div class="nft-content">
+    <slot />
+</div>
+
+<style>
+    .nft-content {
+        width: 100%;
+        height: calc(100% - 70px);
+        overflow: hidden;
+        perspective: 1000px;
+    }
+</style>

@@ -1,0 +1,34 @@
+---
+import NftContentPosition from '../components/nft-content-position.astro';
+
+export interface Props { }
+
+---
+
+<div class="nft-ticket-back">
+    <div class="nft-ticket-back__content">
+        <NftContentPosition positionX={50} positionY={50}> Texto 1 </NftContentPosition>
+        <NftContentPosition positionX={50} positionY={75}> Texto 2 </NftContentPosition>
+        <NftContentPosition positionX={50} positionY={100}> Texto 3 </NftContentPosition>
+        <NftContentPosition positionX={100} positionY={100}> Texto 3 </NftContentPosition>
+    </div>
+</div>
+
+<style>
+    .nft-ticket-back {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        backface-visibility: hidden;
+        transform: rotateY(180deg);
+        border-radius: 5px;
+        pointer-events: none;
+    }
+
+    .nft-ticket-back__content {
+        width: 456px;
+        height: 257px;
+        background: linear-gradient(104.17deg, rgb(216, 226, 240) 0%, rgb(221, 230, 243) 18.35%, rgb(247, 250, 255) 28.32%, rgb(157, 162, 168) 100.68%);
+        border-radius: 10px;
+    }
+</style>

@@ -1,0 +1,1 @@
+export type StyleUpdateType = 'zoom' | 'translate' | 'rotate';

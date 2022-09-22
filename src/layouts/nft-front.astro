@@ -1,0 +1,30 @@
+---
+export interface Props {
+    id?: string;
+}
+
+const { id = 'ticket-front' } = Astro.props;
+
+---
+
+<div class="nft-ticket-front">
+    <div class="nft-ticket-front__content">
+        <img src="https://cdn.discordapp.com/attachments/1002686644140392579/1017491640337825803/Frame_131.png" />
+    </div>
+</div>
+
+<style>
+    .nft-ticket-front {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        backface-visibility: hidden;
+    }
+
+    .nft-ticket-front__content {
+        width: 456px;
+        height: 257px;
+        background: linear-gradient(104.17deg, rgb(216, 226, 240) 0%, rgb(221, 230, 243) 18.35%, rgb(247, 250, 255) 28.32%, rgb(157, 162, 168) 100.68%);
+        border-radius: 10px;
+    }
+</style>
