@@ -1,10 +1,12 @@
 ---
 export interface Props {
-    width: string;
-    height: string;
+    size: {
+        width: string;
+        height: string;
+    }
 }
 
-const { width, height } = Astro.props;
+const { size } = Astro.props;
 
 ---
 
@@ -26,7 +28,7 @@ const { width, height } = Astro.props;
 
 </script>
 
-<style define:vars={{ width, height }}>
+<style define:vars={{ width: size.width, height: size.height }}>
     .nft-faces {
         display: flex;
         justify-content: center;

@@ -1,4 +1,6 @@
 ---
+import NftContentPosition from '../components/nft-content-position.astro';
+
 export interface Props {
     id?: string;
 }
@@ -9,7 +11,9 @@ const { id = 'ticket-front' } = Astro.props;
 
 <div class="nft-ticket-front">
     <div class="nft-ticket-front__content">
-        <img src="https://cdn.discordapp.com/attachments/1002686644140392579/1017491640337825803/Frame_131.png" />
+        <NftContentPosition positionX={0} positionY={0}>
+            <img src="https://dummyimage.com/456x257/000/fff/fff&text=NFT+Image+Asset" />
+        </NftContentPosition>
     </div>
 </div>
 

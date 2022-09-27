@@ -1,11 +1,13 @@
 ---
 export interface Props {
-	width: string;
-	height: string;
+    size: {
+        width: string;
+        height: string;
+    }
 	backGroundColor?: string;
 }
 
-const { width, height } = Astro.props;
+const { size } = Astro.props;
 
 ---
 
@@ -13,7 +15,7 @@ const { width, height } = Astro.props;
     <slot />
 </div>
 
-<style define:vars={{ width, height }}>
+<style define:vars={{ width: size.width, height: size.height }}>
     .nft-container {
         width: var(--width);
         height: var(--height);
