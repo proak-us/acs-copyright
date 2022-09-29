@@ -1,8 +1,9 @@
 # Getting Started
-# What is Dynamic SDK ?
-# Key Features
-# Starting project
-# Node version
+
+
+## What is Dynamic SDK ?
+
+## Starting project
 
 In order to run this application you must have at least Node version 16.16.0.
 
@@ -91,7 +92,7 @@ Inside it we can see that we have two controls where we can decide the width and
 The `ticketSize` influences the total area available for us to insert our assets so that all the content is inside the presentation area and the container
 
 This project contains some basic controls for moving, zooming and rotating and to use each one respectively:
-- Movement: Left mouse button clicking on the NFT and moving in any direction;
+- Movement: Left mouse button clicking on the NFT and drag along in any direction;
 - Zoom: Middle mouse button, turning up will zoom out and down will zoom in;
 - Rotation: With the middle mouse button and holding shift button, up will rotate clockwise and down will rotate counterclockwise.
 
@@ -106,7 +107,7 @@ To use it is very simple: insert any type of asset you want to implement and inf
 The text asset is the simplest to insert, so we'll use the structure component with the following structure: `<NftContentPosition positionX={0} positionY={0}>Text Example</NftContentPosition>`. With the insertion of this element we can already check the text depending on the face that was inserted
 
 ### Image assets
-The image asset so we'll use the structure component with the following structure: 
+The image asset, we will use the structure component with the following structure:
 
 ```
 <NftContentPosition positionX={0} positionY={0}>
@@ -114,10 +115,10 @@ The image asset so we'll use the structure component with the following structur
 </NftContentPosition>
 ```
 
-With the insertion of this element we can already check the text depending on the face that was inserted
+With the insertion of this element we can already check the image on the face that was inserted
 
 ### Video assets
-The image asset so we'll use the structure component with the following structure: 
+The video asset, we will use the structure component with the following structure:
 
 ```
 <NftContentPosition positionX={0} positionY={0}>
@@ -127,7 +128,7 @@ The image asset so we'll use the structure component with the following structur
 </NftContentPosition>
 ```
 
-With the insertion of this element we can already check the text depending on the face that was inserted
+With the insertion of this element we can already check the video on the face that was inserted
 
 # Examples
 ## Base template
