@@ -1,13 +1,32 @@
 ---
+import ContextMenu from './context-menu.astro'
+
 export interface Props {}
 
 const { } = Astro.props;
 
+let contextMenuOpen = false;
 ---
 
-<div class="nft-content">
+<div class="nft-content" id="nft-content">
+    <ContextMenu />
     <slot />
 </div>
+
+<script define:vars={{ contextMenuOpen }}>
+    const element = document.getElementById('nft-content');
+    const contextElement = document.getElementById('context-menu');
+
+    if (element && contextElement) {
+        element.addEventListener('contextmenu', (e) => {
+            e.preventDefault();
+            contextMenuOpen = !contextMenuOpen;
+            console.log('clicked', contextMenuOpen);
+
+            contextElement.style.display = contextMenuOpen ? 'flex' : 'none';
+        });
+    }
+</script>
 
 <style>
     .nft-content {

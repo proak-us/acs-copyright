@@ -1,0 +1,47 @@
+---
+export interface Props {
+}
+---
+
+<div class="context-menu" id="context-menu">
+    <div class="context-menu-container">
+        <div class="context-menu-item">Licenças</div>
+        <div class="context-menu-item">Certificados</div>
+    </div>
+</div>
+
+<style>
+    .context-menu {
+        display: none;
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0, 0, 0, 0.5);
+        z-index: 100;
+
+        justify-content: center;
+        align-items: center;
+    }
+
+    .context-menu-container {
+        min-width: 200px;
+        background-color: #fff;
+        border-radius: 5px;
+        padding: 10px;
+        border: 1px solid #000;
+    }
+
+    .context-menu-item {
+        padding: 5px 10px;
+        cursor: pointer;
+        border-radius: 5px;
+    }
+
+    .context-menu-item:hover {
+        transform: scale(1.05);
+        background-color: #ccc;
+        transition: 0.2s;
+    }
+</style>

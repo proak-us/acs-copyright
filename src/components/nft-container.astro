@@ -3,17 +3,43 @@ export interface Props {
     size: {
         width: string;
         height: string;
-    }
-	backGroundColor?: string;
+    };
+    backGroundColor?: string;
 }
 
 const { size } = Astro.props;
-
 ---
 
 <div class="nft-container">
     <slot />
 </div>
+
+<script>
+    import { PdfManager } from '../package/pdf-manager';
+
+    const pdfContent = {
+        content: [
+            "\nCarteira 1",
+            "Carteira 2",
+            "Carteira 3",
+            "Carteira 4",
+            "Carteira 5",
+        ],
+    };
+
+    const buttonTest = document.getElementById("buttonTest");
+
+    if (buttonTest) {
+        buttonTest.addEventListener("click", async () => {
+            const pdfManager = new PdfManager();
+
+            pdfManager.add( await PdfManager.pdfMakerToBuffer(pdfContent) )
+            pdfManager.add( await PdfManager.pdfMakerToBuffer(pdfContent) )
+            
+            pdfManager.download();
+        });
+    }
+</script>
 
 <style define:vars={{ width: size.width, height: size.height }}>
     .nft-container {

@@ -11,6 +11,11 @@
     "astro": "astro"
   },
   "dependencies": {
-    "astro": "^1.2.7"
+    "astro": "^1.2.7",
+    "pdf-merger-js": "^4.1.1",
+    "pdfmake": "0.3.0-beta.2"
+  },
+  "devDependencies": {
+    "@types/pdfmake": "^0.2.1"
   }
 }
