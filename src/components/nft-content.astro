@@ -1,19 +1,23 @@
 ---
+import type { LicenseManager } from '../package/license-manager';
 import ContextMenu from './context-menu.astro'
 
-export interface Props {}
+export interface Props {
+    licenseManager?: LicenseManager
+}
 
-const { } = Astro.props;
-
-let contextMenuOpen = false;
+const {
+    licenseManager
+} = Astro.props;
 ---
 
 <div class="nft-content" id="nft-content">
-    <ContextMenu />
+    <ContextMenu licenseManager={licenseManager} />
     <slot />
 </div>
 
-<script define:vars={{ contextMenuOpen }}>
+<script>
+    let contextMenuOpen = false;
     const element = document.getElementById('nft-content');
     const contextElement = document.getElementById('context-menu');
 

@@ -4,11 +4,19 @@ export interface Props {
 ---
 
 <div class="context-menu" id="context-menu">
-    <div class="context-menu-container">
-        <div class="context-menu-item">Licenças</div>
-        <div class="context-menu-item">Certificados</div>
-    </div>
+    <div class="context-menu-container" id="context-menu-content"></div>
 </div>
+
+<script>
+    const contextMenu = document.getElementById('context-menu-content');
+
+    if (contextMenu) {
+        if (window.app?.licenseManager) {
+            console.log("[CHEGOU AQUI]")
+            contextMenu.appendChild(window.app.licenseManager.renderLicense());
+        }
+    }
+</script>
 
 <style>
     .context-menu {
@@ -33,13 +41,15 @@ export interface Props {
         border: 1px solid #000;
     }
 
-    .context-menu-item {
+    .context-menu-container div {
         padding: 5px 10px;
         cursor: pointer;
         border-radius: 5px;
+
+        background-color: red;
     }
 
-    .context-menu-item:hover {
+    .context-menu-container div:hover {
         transform: scale(1.05);
         background-color: #ccc;
         transition: 0.2s;

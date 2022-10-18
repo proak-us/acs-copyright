@@ -3,7 +3,7 @@ import * as pdfMake from "pdfmake/build/pdfmake";
 import type { TDocumentDefinitions } from "pdfmake/interfaces";
 // import * as pdfFonts from 'pdfmake/build/vfs_fonts';
 
-export class PdfManager {
+export class LicenseManager {
     private pdfState: PDFMerger = new PDFMerger();
 
     public static async pdfMakerToBuffer(pdfContent: TDocumentDefinitions): Promise<Buffer> {
@@ -19,7 +19,7 @@ export class PdfManager {
         });
     }
 
-    public add(pdf: Buffer | string, pages?: string | string[]): PdfManager {
+    public add(pdf: Buffer | string, pages?: string | string[]): LicenseManager {
         this.pdfState.add(pdf, pages);
 
         return this;

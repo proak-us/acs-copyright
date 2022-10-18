@@ -15,28 +15,12 @@ const { size } = Astro.props;
 </div>
 
 <script>
-    import { PdfManager } from '../package/pdf-manager';
-
-    const pdfContent = {
-        content: [
-            "\nCarteira 1",
-            "Carteira 2",
-            "Carteira 3",
-            "Carteira 4",
-            "Carteira 5",
-        ],
-    };
-
     const buttonTest = document.getElementById("buttonTest");
 
     if (buttonTest) {
         buttonTest.addEventListener("click", async () => {
-            const pdfManager = new PdfManager();
-
-            pdfManager.add( await PdfManager.pdfMakerToBuffer(pdfContent) )
-            pdfManager.add( await PdfManager.pdfMakerToBuffer(pdfContent) )
-            
-            pdfManager.download();
+            /* window.app?.licenseManager?.download(); */
+            console.log("[CLICLADO]")
         });
     }
 </script>
