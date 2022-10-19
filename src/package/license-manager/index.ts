@@ -1,7 +1,7 @@
 import PDFMerger from "pdf-merger-js";
 import * as pdfMake from "pdfmake/build/pdfmake";
 import type { TDocumentDefinitions } from "pdfmake/interfaces";
-// import * as pdfFonts from 'pdfmake/build/vfs_fonts';
+import * as pdfFonts from 'pdfmake/build/vfs_fonts';
 
 export class LicenseManager {
     private pdfState: PDFMerger = new PDFMerger();
@@ -31,7 +31,7 @@ export class LicenseManager {
 
     public renderLicense(): HTMLDivElement {
         const licenseElement = document.createElement("div");
-        licenseElement.innerText = 'License';
+        licenseElement.innerText = 'Licenses';
 
         licenseElement.onclick = (e) => {
             this.download();

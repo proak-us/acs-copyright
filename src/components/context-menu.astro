@@ -1,24 +1,45 @@
 ---
-export interface Props {
-}
+export interface Props { }
+
+const { } = Astro.props;
 ---
 
 <div class="context-menu" id="context-menu">
-    <div class="context-menu-container" id="context-menu-content"></div>
+    <div class="context-menu-container" id="context-menu-content">
+        <div class='context-menu-close' id='context-menu-close'>&times;</div>
+        <div class="context-menu-image">
+            <img src="https://dummyimage.com/80x80/000/fff" width="80" height="80" />
+        </div>
+        <div class="context-menu-nft-name">
+            © NFT Model Name
+        </div>
+        <div class="context-menu-certified">v1.0 - Certificated by <a href="#">ProAK</a></div>
+    </div>
 </div>
 
 <script>
     const contextMenu = document.getElementById('context-menu-content');
 
     if (contextMenu) {
-        if (window.app?.licenseManager) {
-            console.log("[CHEGOU AQUI]")
-            contextMenu.appendChild(window.app.licenseManager.renderLicense());
+        if (window.app.licenseManager) {
+            const licenseElement = window.app.licenseManager.renderLicense();
+            licenseElement.classList.add('context-menu-container__item');
+
+            contextMenu.appendChild(licenseElement);
         }
+    }
+
+    const closeButton = document.getElementById('context-menu-close');
+    const contextElement = document.getElementById('context-menu');
+
+    if (closeButton && contextElement) {
+        closeButton.addEventListener('click', () => {
+            contextElement.style.display = contextElement.style.display === 'flex' ? 'none' : 'flex';
+        });
     }
 </script>
 
-<style>
+<style is:global>
     .context-menu {
         display: none;
         position: absolute;
@@ -34,24 +55,64 @@ export interface Props {
     }
 
     .context-menu-container {
-        min-width: 200px;
+        position: relative;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 8px;
+        width: 353px;
+        min-height: 353px;
         background-color: #fff;
         border-radius: 5px;
-        padding: 10px;
+        padding: 12px 24px 24px 24px;
         border: 1px solid #000;
+
+        font-weight: 600;
+        font-size: 16px;
+        line-height: 24px;
     }
 
-    .context-menu-container div {
+    .context-menu-close {
+        text-align: end;
+        cursor: pointer;
+        width: 100%;
+        font-size: 1.5rem;
+    }
+
+    .context-menu-image {
+        border-radius: 100%;
+    }
+
+    .context-menu-image img {
+        border-radius: 100%;
+    }
+
+    .context-menu-nft-name {}
+
+    .context-menu-certified {
+        color: #A1A1AA;
+        margin-bottom: 42px;
+    }
+
+    .context-menu-certified a {
+        color: #F97316;
+        text-decoration: none;
+    }
+
+    .context-menu-certified a:hover {
+        text-decoration: underline;
+    }
+
+    .context-menu-container__item {
         padding: 5px 10px;
         cursor: pointer;
+        border: 1px solid #71717A;
         border-radius: 5px;
-
-        background-color: red;
+        width: 100%;
+        text-align: center;
     }
 
-    .context-menu-container div:hover {
-        transform: scale(1.05);
+    .context-menu-container__item:hover {
         background-color: #ccc;
-        transition: 0.2s;
     }
 </style>

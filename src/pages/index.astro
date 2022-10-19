@@ -9,7 +9,7 @@ import NFTBack from '../layouts/nft-back.astro';
 
 const containerSize = {
 	width: '500px',
-	height: '550px',
+	height: '584px',
 };
 
 const ticketSize = {
@@ -35,14 +35,4 @@ const ticketSize = {
 	window.app = {
 		licenseManager: new LicenseManager()
 	};
-
-	window.app?.licenseManager?.add(await LicenseManager.pdfMakerToBuffer({
-        content: [
-            "\nCarteira 1",
-            "Carteira 2",
-            "Carteira 3",
-            "Carteira 4",
-            "Carteira 5",
-        ],
-    }));
 </script>
